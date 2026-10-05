@@ -1,1 +1,1 @@
-# lecturepilot
+An AI-powered autonomous learning platform that understands videos, PDFs, PPTs, and notes, providing timestamp-aware assistance, personalized learning, and adaptive mock interviews using NVIDIA Nemotron on Nebius Token Factory.
