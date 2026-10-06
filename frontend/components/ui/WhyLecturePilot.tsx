@@ -70,7 +70,7 @@ export default function WhyLecturePilot() {
             <span>Why Students Love Us</span>
           </div>
 
-          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#FAF8FA] sm:text-4xl">
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#F4F4F5] sm:text-4xl">
             A Better Way to Learn
           </h2>
 
@@ -90,7 +90,7 @@ export default function WhyLecturePilot() {
               transition={{ duration: 0.35, delay: idx * 0.05 }}
               className="rounded-3xl border border-[#F3E8EE] dark:border-[#35313B] bg-white dark:bg-[#242129] p-6 text-center shadow-xs"
             >
-              <p className="font-mono text-3xl sm:text-4xl font-extrabold text-[#2D2A32] dark:text-[#FAF8FA] tracking-tight">
+              <p className="font-mono text-3xl sm:text-4xl font-extrabold text-[#2D2A32] dark:text-[#F4F4F5] tracking-tight">
                 {m.value}
               </p>
               <p className="mt-2 text-xs sm:text-sm font-semibold text-[#F4B6C2] dark:text-[#D8A7B1]">
@@ -107,11 +107,11 @@ export default function WhyLecturePilot() {
         <div className="mt-14 overflow-hidden rounded-3xl border border-[#F3E8EE] dark:border-[#35313B] bg-white dark:bg-[#242129] shadow-xs">
           {/* Table Header */}
           <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[#F3E8EE] dark:border-[#35313B] bg-[#FFF9FB] dark:bg-[#18161B] p-5 text-sm font-semibold">
-            <div className="md:col-span-4 text-[#2D2A32] dark:text-[#FAF8FA]">Study Experience</div>
+            <div className="md:col-span-4 text-[#2D2A32] dark:text-[#F4F4F5]">Study Experience</div>
             <div className="hidden md:block md:col-span-4 text-[#6B6873] dark:text-[#C9C3CB]">
               Traditional Studying
             </div>
-            <div className="hidden md:block md:col-span-4 text-[#2D2A32] dark:text-[#FAF8FA] font-bold">
+            <div className="hidden md:block md:col-span-4 text-[#2D2A32] dark:text-[#F4F4F5] font-bold">
               With LecturePilot
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function WhyLecturePilot() {
                       <Icon className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-[#2D2A32] dark:text-[#FAF8FA]">{item.feature}</p>
+                      <p className="text-sm font-semibold text-[#2D2A32] dark:text-[#F4F4F5]">{item.feature}</p>
                       <p className="text-[11px] text-[#6B6873] dark:text-[#C9C3CB] mt-0.5">{item.stat}</p>
                     </div>
                   </div>
@@ -147,7 +147,7 @@ export default function WhyLecturePilot() {
                   </div>
 
                   {/* LecturePilot */}
-                  <div className="md:col-span-4 flex items-start gap-2 text-xs text-[#2D2A32] dark:text-[#FAF8FA] font-medium p-2 md:p-0">
+                  <div className="md:col-span-4 flex items-start gap-2 text-xs text-[#2D2A32] dark:text-[#F4F4F5] font-medium p-2 md:p-0">
                     <Check className="h-4 w-4 shrink-0 text-[#F4B6C2] dark:text-[#D8A7B1] mt-0.5" />
                     <span className="leading-relaxed">{item.lecturepilot}</span>
                   </div>
@@ -164,7 +164,7 @@ export default function WhyLecturePilot() {
 
             <Link
               href="/upload"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#2D2A32] dark:text-[#FAF8FA] hover:text-[#F4B6C2] dark:hover:text-[#D8A7B1] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#2D2A32] dark:text-[#F4F4F5] hover:text-[#F4B6C2] dark:hover:text-[#D8A7B1] transition-colors"
             >
               <span>Upload your first file</span>
               <ArrowRight className="h-3.5 w-3.5" />

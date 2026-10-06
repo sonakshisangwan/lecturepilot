@@ -19,7 +19,7 @@ export default function Home() {
   const handleCloseDemo = () => setDemoModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-[#121114] text-[#F5F3ED] transition-colors duration-200">
+    <div className="min-h-screen bg-[#FFF9FB] dark:bg-[#0D0D0E] text-[#2D2A32] dark:text-[#F4F4F5] transition-colors duration-200">
       {/* Sticky Navigation */}
       <Navbar onOpenDemo={handleOpenDemo} />
 

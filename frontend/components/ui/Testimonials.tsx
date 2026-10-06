@@ -13,7 +13,7 @@ export default function Testimonials() {
       quote:
         "Medical school pharmacology is pure memorization overload. LecturePilot converted 60 hours of cardiovascular lectures into high-yield Anki flashcards and timestamped summaries. It cut my review time in half and I scored in the top 4% on shelf exams.",
       badge: "Top 4% Shelf Exam Score",
-      accent: "text-[#82A792] dark:text-[#9ABAA4] bg-[#FDF2F8] dark:bg-[#25202B] border-[#82A792]/40",
+      accent: "text-[#82A792] dark:text-[#9ABAA4] bg-[#FDF2F8] dark:bg-[#202024] border-[#82A792]/40",
     },
     {
       name: "Maya Chen",
@@ -23,7 +23,7 @@ export default function Testimonials() {
       quote:
         "My algorithms professor writes rapid proofs on chalkboard that used to take hours to decipher. LecturePilot transcribed the video, extracted dynamic programming recurrence relations, and quizzed me until I actually understood it. It feels like having a sweet senior TA on call 24/7.",
       badge: "A+ in Algorithms (CS 170)",
-      accent: "text-[#2D2A32] dark:text-[#FAF8FA] bg-[#FDF2F8] dark:bg-[#25202B] border-[#F4B6C2]/40",
+      accent: "text-[#2D2A32] dark:text-[#F4F4F5] bg-[#FDF2F8] dark:bg-[#202024] border-[#F4B6C2]/40",
     },
     {
       name: "Julian Vance",
@@ -33,25 +33,25 @@ export default function Testimonials() {
       quote:
         "The semantic search across 14 weeks of antitrust legal lectures is incredible. I can query a vague concept like 'bundling in digital platforms' and it instantly takes me to the exact 45-second segment where the professor answered a student question about it.",
       badge: "Columbia Law Review",
-      accent: "text-[#D99AA9] bg-[#FDF2F8] dark:bg-[#25202B] border-[#D99AA9]/40",
+      accent: "text-[#D99AA9] bg-[#FDF2F8] dark:bg-[#202024] border-[#D99AA9]/40",
     },
   ];
 
   return (
-    <section className="relative px-5 py-20 lg:px-8 lg:py-28 border-t border-[#F3E8EE] dark:border-[#2C2630]">
+    <section className="relative px-5 py-20 lg:px-8 lg:py-28 border-t border-[#F3E8EE] dark:border-[#27272A]">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#F3E8EE] dark:border-[#2C2630] bg-[#FDF2F8] dark:bg-[#1A181E] px-3.5 py-1 text-xs font-medium text-[#2D2A32] dark:text-[#FAF8FA]">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#F3E8EE] dark:border-[#27272A] bg-[#FDF2F8] dark:bg-[#18181B] px-3.5 py-1 text-xs font-medium text-[#2D2A32] dark:text-[#F4F4F5]">
             <Heart className="h-3 w-3 text-[#F4B6C2]" />
             <span>Student Stories 🌸</span>
           </div>
 
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#FAF8FA] sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#F4F4F5] sm:text-4xl">
             Trusted by students facing intense courses.
           </h2>
 
-          <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-[#6B6873] dark:text-[#C8C1C5]">
+          <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-[#6B6873] dark:text-[#A1A1AA]">
             From engineering problem sets to USMLE medical preparation, see how students cut hours of study frustration.
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.08 }}
-              className="relative flex flex-col justify-between rounded-3xl border border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#1A181E] p-7 shadow-2xs hover:border-[#F4B6C2] dark:hover:border-[#F4B6C2]/40 transition"
+              className="relative flex flex-col justify-between rounded-3xl border border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#18181B] p-7 shadow-2xs hover:border-[#F4B6C2] dark:hover:border-[#F4B6C2]/40 transition"
             >
               <div>
                 {/* Stars and Quote */}
@@ -76,11 +76,11 @@ export default function Testimonials() {
                     ))}
                   </div>
 
-                  <Quote className="h-5 w-5 text-[#F3E8EE] dark:text-[#2C2630]" />
+                  <Quote className="h-5 w-5 text-[#F3E8EE] dark:text-[#27272A]" />
                 </div>
 
                 {/* Quote Text */}
-                <p className="mt-5 text-xs sm:text-sm leading-relaxed text-[#2D2A32] dark:text-[#FAF8FA]">
+                <p className="mt-5 text-xs sm:text-sm leading-relaxed text-[#2D2A32] dark:text-[#F4F4F5]">
                   &ldquo;{t.quote}&rdquo;
                 </p>
 
@@ -92,16 +92,16 @@ export default function Testimonials() {
               </div>
 
               {/* Student Bio */}
-              <div className="mt-6 pt-5 border-t border-[#F3E8EE] dark:border-[#2C2630] flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#25202B] text-xs font-bold text-[#2D2A32] dark:text-[#FAF8FA] border border-[#F3E8EE] dark:border-[#2C2630]">
+              <div className="mt-6 pt-5 border-t border-[#F3E8EE] dark:border-[#27272A] flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#202024] text-xs font-bold text-[#2D2A32] dark:text-[#F4F4F5] border border-[#F3E8EE] dark:border-[#27272A]">
                   {t.initials}
                 </div>
 
                 <div className="overflow-hidden">
-                  <p className="text-sm font-semibold text-[#2D2A32] dark:text-[#FAF8FA] truncate">
+                  <p className="text-sm font-semibold text-[#2D2A32] dark:text-[#F4F4F5] truncate">
                     {t.name}
                   </p>
-                  <p className="text-xs text-[#6B6873] dark:text-[#C8C1C5] truncate">{t.role}</p>
+                  <p className="text-xs text-[#6B6873] dark:text-[#A1A1AA] truncate">{t.role}</p>
                   <p className="text-[11px] text-[#F4B6C2] font-medium truncate">{t.school}</p>
                 </div>
               </div>

@@ -35,20 +35,20 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="relative scroll-mt-20 px-5 py-20 lg:px-8 lg:py-28 border-t border-[#F3E8EE] dark:border-[#2C2630]">
+    <section id="faq" className="relative scroll-mt-20 px-5 py-20 lg:px-8 lg:py-28 border-t border-[#F3E8EE] dark:border-[#27272A]">
       <div className="mx-auto max-w-3xl">
         {/* Header */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#F3E8EE] dark:border-[#2C2630] bg-[#FDF2F8] dark:bg-[#1A181E] px-3.5 py-1 text-xs font-medium text-[#2D2A32] dark:text-[#FAF8FA]">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#F3E8EE] dark:border-[#27272A] bg-[#FDF2F8] dark:bg-[#18181B] px-3.5 py-1 text-xs font-medium text-[#2D2A32] dark:text-[#F4F4F5]">
             <Sparkles className="h-3 w-3 text-[#F4B6C2]" />
             <span>Questions & Answers 🌸</span>
           </div>
 
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#FAF8FA] sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#F4F4F5] sm:text-4xl">
             Frequently Asked Questions
           </h2>
 
-          <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-[#6B6873] dark:text-[#C8C1C5]">
+          <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-[#6B6873] dark:text-[#A1A1AA]">
             Everything you need to know about LecturePilot&apos;s AI learning assistant.
           </p>
         </div>
@@ -67,17 +67,17 @@ export default function FAQ() {
                 className={`overflow-hidden rounded-2xl border transition-colors ${
                   isOpen
                     ? "border-[#F4B6C2] bg-[#FDF2F8]/70 dark:bg-[#1F1C24] shadow-2xs"
-                    : "border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#1A181E] hover:border-[#F4B6C2]/50"
+                    : "border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#18181B] hover:border-[#F4B6C2]/50"
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-semibold text-[#2D2A32] dark:text-[#FAF8FA]"
+                  className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-semibold text-[#2D2A32] dark:text-[#F4F4F5]"
                   aria-expanded={isOpen}
                 >
                   <span className="pr-4">{faq.q}</span>
                   <div
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[#6B6873] dark:text-[#C8C1C5] transition-transform duration-200 ${
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[#6B6873] dark:text-[#A1A1AA] transition-transform duration-200 ${
                       isOpen ? "rotate-180 text-[#F4B6C2]" : ""
                     }`}
                   >
@@ -93,7 +93,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
-                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm leading-relaxed text-[#6B6873] dark:text-[#C8C1C5] border-t border-[#F3E8EE] dark:border-[#2C2630]">
+                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm leading-relaxed text-[#6B6873] dark:text-[#A1A1AA] border-t border-[#F3E8EE] dark:border-[#27272A]">
                         {faq.a}
                       </div>
                     </motion.div>

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
 
 :root {
   /* LIGHT MODE (Locked): Soft light pink / blush / off-white cozy theme */
@@ -16,21 +16,25 @@
   --accent-blush: #F4B6C2;
   --accent-blush-hover: #EAA0AE;
   --accent-rose: #D99AA9;
+  --accent-mauve: #B695A6;
+  --accent-lavender: #E2CCEA;
+  --accent-cream: #FFFBFD;
+  --accent-taupe: #8F7F8A;
   --accent-mint: #82A792;
 }
 
 .dark,
 :root[data-theme="dark"] {
-  /* DARK MODE (Locked): Black / deep charcoal cozy theme */
-  --bg: #121014;
-  --bg-secondary: #17151A;
-  --card: #1A181E;
-  --card-hover: #221F27;
-  --border: #2C2630;
-  --border-hover: #3D3543;
-  --text: #FAF8FA;
-  --text-secondary: #C8C1C5;
-  --text-muted: #8E8691;
+  /* DARK MODE (Locked): True black / deep charcoal only (zero red/maroon/wine tint) */
+  --bg: #0D0D0E;
+  --bg-secondary: #141416;
+  --card: #18181B;
+  --card-hover: #222225;
+  --border: #27272A;
+  --border-hover: #38383D;
+  --text: #F4F4F5;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
   --accent-blush: #F4B6C2;
   --accent-blush-hover: #F8CAD4;
   --accent-rose: #D99AA9;
@@ -88,4 +92,18 @@ body {
 }
 .rotate-y-180 {
   transform: rotateY(180deg);
+}
+
+/* Delicate, Soft & Pretty Cozy Shadows */
+.shadow-cozy {
+  box-shadow: 0 4px 20px -2px rgba(244, 182, 194, 0.15);
+}
+.shadow-cozy-lg {
+  box-shadow: 0 10px 30px -4px rgba(244, 182, 194, 0.22);
+}
+.dark .shadow-cozy {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+}
+.dark .shadow-cozy-lg {
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.6);
 }

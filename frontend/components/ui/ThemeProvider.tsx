@@ -15,46 +15,83 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+const STORAGE_KEY = "lecturepilot-theme";
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Default to dark theme as requested for the soft, cozy, warm dark aesthetic
-  const [theme, setThemeState] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    // Read saved preference if available, default to dark
-    const saved = typeof window !== "undefined" ? window.localStorage.getItem("lecturepilot-theme") : null;
-    if (saved === "light") {
-      setThemeState("light");
-    } else {
-      setThemeState("dark");
+  const [theme, setThemeState] = useState<"dark" | "light">(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = window.localStorage.getItem(STORAGE_KEY);
+        if (saved === "light" || saved === "dark") return saved;
+        const attr = document.documentElement.getAttribute("data-theme");
+        if (attr === "light" || attr === "dark") return attr;
+      } catch (e) {
+        // LocalStorage access may fail in restricted iframes
+      }
     }
-  }, []);
+    return "dark";
+  });
 
-  useEffect(() => {
-    if (theme === "dark") {
+  const applyThemeToDOM = useCallback((targetTheme: "dark" | "light") => {
+    if (typeof window === "undefined") return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, targetTheme);
+    } catch (e) {
+      // ignore
+    }
+    if (targetTheme === "dark") {
       document.documentElement.classList.add("dark");
-      document.documentElement.dataset.theme = "dark";
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.style.colorScheme = "dark";
     } else {
       document.documentElement.classList.remove("dark");
-      document.documentElement.dataset.theme = "light";
-    }
-  }, [theme]);
-
-  const setTheme = useCallback((newTheme: "dark" | "light") => {
-    setThemeState(newTheme);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("lecturepilot-theme", newTheme);
+      document.documentElement.setAttribute("data-theme", "light");
+      document.documentElement.style.colorScheme = "light";
     }
   }, []);
+
+  // Synchronize and lock on mount
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      if (saved === "light" || saved === "dark") {
+        setThemeState(saved);
+        applyThemeToDOM(saved);
+      } else {
+        const initial = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+        setThemeState(initial);
+        applyThemeToDOM(initial);
+      }
+    } catch (e) {
+      applyThemeToDOM("dark");
+    }
+
+    // Cross-tab synchronization
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY && (e.newValue === "light" || e.newValue === "dark")) {
+        setThemeState(e.newValue);
+        applyThemeToDOM(e.newValue);
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, [applyThemeToDOM]);
+
+  const setTheme = useCallback(
+    (newTheme: "dark" | "light") => {
+      setThemeState(newTheme);
+      applyThemeToDOM(newTheme);
+    },
+    [applyThemeToDOM]
+  );
 
   const toggleTheme = useCallback(() => {
     setThemeState((prev) => {
       const next = prev === "dark" ? "light" : "dark";
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("lecturepilot-theme", next);
-      }
+      applyThemeToDOM(next);
       return next;
     });
-  }, []);
+  }, [applyThemeToDOM]);
 
   const value = useMemo(
     () => ({

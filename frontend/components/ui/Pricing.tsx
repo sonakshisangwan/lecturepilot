@@ -40,7 +40,7 @@ export default function Pricing() {
             <span>Simple Pricing</span>
           </div>
 
-          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#FAF8FA] sm:text-4xl">
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#2D2A32] dark:text-[#F4F4F5] sm:text-4xl">
             Choose What Fits Your Semester
           </h2>
 
@@ -54,8 +54,8 @@ export default function Pricing() {
               onClick={() => setAnnualBilling(false)}
               className={`rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
                 !annualBilling
-                  ? "bg-[#FDF2F8] dark:bg-[#18161B] text-[#2D2A32] dark:text-[#FAF8FA] shadow-xs"
-                  : "text-[#6B6873] dark:text-[#C9C3CB] hover:text-[#2D2A32] dark:hover:text-[#FAF8FA]"
+                  ? "bg-[#FDF2F8] dark:bg-[#18161B] text-[#2D2A32] dark:text-[#F4F4F5] shadow-xs"
+                  : "text-[#6B6873] dark:text-[#C9C3CB] hover:text-[#2D2A32] dark:hover:text-[#F4F4F5]"
               }`}
             >
               Monthly Billing
@@ -65,12 +65,12 @@ export default function Pricing() {
               onClick={() => setAnnualBilling(true)}
               className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
                 annualBilling
-                  ? "bg-[#FDF2F8] dark:bg-[#18161B] text-[#2D2A32] dark:text-[#FAF8FA] shadow-xs"
-                  : "text-[#6B6873] dark:text-[#C9C3CB] hover:text-[#2D2A32] dark:hover:text-[#FAF8FA]"
+                  ? "bg-[#FDF2F8] dark:bg-[#18161B] text-[#2D2A32] dark:text-[#F4F4F5] shadow-xs"
+                  : "text-[#6B6873] dark:text-[#C9C3CB] hover:text-[#2D2A32] dark:hover:text-[#F4F4F5]"
               }`}
             >
               <span>Annual Billing</span>
-              <span className="rounded-full bg-[#F4B6C2]/20 dark:bg-[#D8A7B1]/20 px-2 py-0.5 text-[10px] font-bold text-[#2D2A32] dark:text-[#FAF8FA]">
+              <span className="rounded-full bg-[#F4B6C2]/20 dark:bg-[#D8A7B1]/20 px-2 py-0.5 text-[10px] font-bold text-[#2D2A32] dark:text-[#F4F4F5]">
                 Save 25%
               </span>
             </button>
@@ -91,7 +91,7 @@ export default function Pricing() {
             <div>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-[#2D2A32] dark:text-[#FAF8FA]">Free</h3>
+                  <h3 className="text-xl font-bold text-[#2D2A32] dark:text-[#F4F4F5]">Free</h3>
                   <p className="mt-1 text-xs text-[#6B6873] dark:text-[#C9C3CB]">For individual courses and light revision</p>
                 </div>
                 <span className="rounded-full border border-[#F3E8EE] dark:border-[#35313B] bg-[#FFF9FB] dark:bg-[#18161B] px-3 py-1 text-xs font-medium text-[#6B6873] dark:text-[#C9C3CB]">
@@ -100,7 +100,7 @@ export default function Pricing() {
               </div>
 
               <div className="mt-6 flex items-baseline gap-1.5">
-                <span className="font-mono text-4xl font-extrabold text-[#2D2A32] dark:text-[#FAF8FA]">$0</span>
+                <span className="font-mono text-4xl font-extrabold text-[#2D2A32] dark:text-[#F4F4F5]">$0</span>
                 <span className="text-sm text-[#6B6873] dark:text-[#C9C3CB]">/ month</span>
               </div>
 
@@ -123,7 +123,7 @@ export default function Pricing() {
             <div className="mt-8 pt-4">
               <Link
                 href="/upload"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#F3E8EE] dark:border-[#35313B] bg-[#FFF9FB] dark:bg-[#18161B] py-3 text-sm font-semibold text-[#2D2A32] dark:text-[#FAF8FA] transition-colors hover:bg-[#FDF2F8] dark:hover:bg-[#201D24]"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#F3E8EE] dark:border-[#35313B] bg-[#FFF9FB] dark:bg-[#18161B] py-3 text-sm font-semibold text-[#2D2A32] dark:text-[#F4F4F5] transition-colors hover:bg-[#FDF2F8] dark:hover:bg-[#201D24]"
               >
                 <span>Get Started Free</span>
                 <ArrowRight className="h-4 w-4" />
@@ -142,7 +142,7 @@ export default function Pricing() {
             <div>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-[#2D2A32] dark:text-[#FAF8FA]">Pro</h3>
+                  <h3 className="text-xl font-bold text-[#2D2A32] dark:text-[#F4F4F5]">Pro</h3>
                   <p className="mt-1 text-xs text-[#6B6873] dark:text-[#C9C3CB]">For intense semesters and deep retention</p>
                 </div>
                 <span className="rounded-full bg-[#F4B6C2] dark:bg-[#D8A7B1] px-3 py-1 text-xs font-semibold text-white dark:text-[#18161B]">
@@ -151,7 +151,7 @@ export default function Pricing() {
               </div>
 
               <div className="mt-6 flex items-baseline gap-1.5">
-                <span className="font-mono text-4xl font-extrabold text-[#2D2A32] dark:text-[#FAF8FA]">
+                <span className="font-mono text-4xl font-extrabold text-[#2D2A32] dark:text-[#F4F4F5]">
                   ${annualBilling ? "9" : "12"}
                 </span>
                 <span className="text-sm text-[#6B6873] dark:text-[#C9C3CB]">
@@ -165,11 +165,11 @@ export default function Pricing() {
 
               {/* Feature list */}
               <div className="mt-6 pt-6 border-t border-[#F3E8EE] dark:border-[#35313B] space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#2D2A32] dark:text-[#FAF8FA]">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#2D2A32] dark:text-[#F4F4F5]">
                   Everything in Free, plus:
                 </p>
                 {proFeatures.map((f, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2D2A32] dark:text-[#FAF8FA]">
+                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2D2A32] dark:text-[#F4F4F5]">
                     <Check className="h-4 w-4 shrink-0 text-[#F4B6C2] dark:text-[#D8A7B1] mt-0.5" />
                     <span>{f}</span>
                   </div>

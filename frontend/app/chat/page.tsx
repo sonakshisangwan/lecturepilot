@@ -139,27 +139,27 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF9FB] dark:bg-[#121014] text-[#2D2A32] dark:text-[#FAF8FA] transition-colors duration-200 flex flex-col">
+    <div className="min-h-screen bg-[#FFF9FB] dark:bg-[#0D0D0E] text-[#2D2A32] dark:text-[#F4F4F5] transition-colors duration-200 flex flex-col">
       <Navbar />
 
       <main className="flex-1 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col">
         
         {/* Top Header & Lecture Switcher */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b border-[#F3E8EE] dark:border-[#2C2630]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b border-[#F3E8EE] dark:border-[#27272A]">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#221F27] border border-[#F4B6C2]/35 text-[#D99AA9] dark:text-[#F4B6C2] shadow-xs">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#202024] border border-[#F4B6C2]/35 text-[#D99AA9] dark:text-[#F4B6C2] shadow-xs">
               <MessageSquare className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-lg sm:text-xl font-bold text-[#2D2A32] dark:text-[#FAF8FA]">
+                <h1 className="text-lg sm:text-xl font-bold text-[#2D2A32] dark:text-[#F4F4F5]">
                   AI Socratic Tutor 🌸
                 </h1>
                 <span className="rounded-full bg-[#82A792]/15 dark:bg-[#9ABAA4]/15 border border-[#82A792]/30 dark:border-[#9ABAA4]/30 text-[#82A792] dark:text-[#9ABAA4] px-2 py-0.5 text-[10px] font-medium">
                   RAG Grounded
                 </span>
               </div>
-              <p className="text-xs text-[#6B6873] dark:text-[#C8BAC3]">
+              <p className="text-xs text-[#6B6873] dark:text-[#A1A1AA]">
                 Answers grounded in exact course slide numbers & audio timestamps
               </p>
             </div>
@@ -175,25 +175,25 @@ export default function ChatPage() {
                   const found = MOCK_LECTURES.find((l) => l.id === e.target.value);
                   if (found) setSelectedLecture(found);
                 }}
-                className="appearance-none rounded-2xl border border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#221F27] px-3.5 py-2 pr-8 text-xs font-medium text-[#2D2A32] dark:text-[#FAF8FA] focus:outline-none focus:border-[#F4B6C2] shadow-xs"
+                className="appearance-none rounded-2xl border border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#202024] px-3.5 py-2 pr-8 text-xs font-medium text-[#2D2A32] dark:text-[#F4F4F5] focus:outline-none focus:border-[#F4B6C2] shadow-xs"
               >
                 {MOCK_LECTURES.map((l) => (
-                  <option key={l.id} value={l.id} className="bg-white dark:bg-[#221F27] text-[#2D2A32] dark:text-[#FAF8FA]">
+                  <option key={l.id} value={l.id} className="bg-white dark:bg-[#202024] text-[#2D2A32] dark:text-[#F4F4F5]">
                     {l.title}
                   </option>
                 ))}
               </select>
-              <ChevronDown className="h-3.5 w-3.5 text-[#9A949F] dark:text-[#8E8691] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="h-3.5 w-3.5 text-[#9A949F] dark:text-[#71717A] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
 
             {/* Socratic Mode Toggle */}
-            <div className="flex items-center rounded-2xl bg-[#FDF2F8] dark:bg-[#221F27] border border-[#F3E8EE] dark:border-[#2C2630] p-1 text-xs">
+            <div className="flex items-center rounded-2xl bg-[#FDF2F8] dark:bg-[#202024] border border-[#F3E8EE] dark:border-[#27272A] p-1 text-xs">
               <button
                 onClick={() => setTutorMode("direct")}
                 className={`rounded-xl px-2.5 py-1 text-xs font-medium transition ${
                   tutorMode === "direct"
-                    ? "bg-[#F4B6C2] text-[#1F1A23] font-semibold shadow-xs"
-                    : "text-[#6B6873] dark:text-[#C8BAC3] hover:text-[#2D2A32] dark:hover:text-[#FAF8FA]"
+                    ? "bg-[#F4B6C2] text-[#18181B] font-semibold shadow-xs"
+                    : "text-[#6B6873] dark:text-[#A1A1AA] hover:text-[#2D2A32] dark:hover:text-[#F4F4F5]"
                 }`}
               >
                 Direct
@@ -202,8 +202,8 @@ export default function ChatPage() {
                 onClick={() => setTutorMode("socratic")}
                 className={`rounded-xl px-2.5 py-1 text-xs font-medium transition ${
                   tutorMode === "socratic"
-                    ? "bg-[#F4B6C2] text-[#1F1A23] font-semibold shadow-xs"
-                    : "text-[#6B6873] dark:text-[#C8BAC3] hover:text-[#2D2A32] dark:hover:text-[#FAF8FA]"
+                    ? "bg-[#F4B6C2] text-[#18181B] font-semibold shadow-xs"
+                    : "text-[#6B6873] dark:text-[#A1A1AA] hover:text-[#2D2A32] dark:hover:text-[#F4F4F5]"
                 }`}
               >
                 Socratic
@@ -212,7 +212,7 @@ export default function ChatPage() {
 
             <Link
               href="/study"
-              className="rounded-2xl border border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#221F27] hover:bg-[#FDF2F8] dark:hover:bg-[#2E2734] px-3 py-2 text-xs font-medium text-[#D99AA9] dark:text-[#F4B6C2] transition shadow-xs"
+              className="rounded-2xl border border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#202024] hover:bg-[#FDF2F8] dark:hover:bg-[#2E2734] px-3 py-2 text-xs font-medium text-[#D99AA9] dark:text-[#F4B6C2] transition shadow-xs"
             >
               Study Tools Hub →
             </Link>
@@ -231,10 +231,10 @@ export default function ChatPage() {
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-5 min-h-[540px]">
           
           {/* Left Context Column */}
-          <aside className="hidden lg:flex lg:col-span-3 flex-col justify-between rounded-3xl border border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#1A181E] p-5 space-y-4 shadow-sm">
+          <aside className="hidden lg:flex lg:col-span-3 flex-col justify-between rounded-3xl border border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#18181B] p-5 space-y-4 shadow-sm">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#9A949F] dark:text-[#8E8691]">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#9A949F] dark:text-[#71717A]">
                   Active Document
                 </span>
                 <span className="text-[10px] text-[#82A792] dark:text-[#9ABAA4] bg-[#82A792]/15 dark:bg-[#9ABAA4]/15 px-2 py-0.5 rounded-full border border-[#82A792]/30 dark:border-[#9ABAA4]/30 font-medium">
@@ -242,19 +242,19 @@ export default function ChatPage() {
                 </span>
               </div>
 
-              <h2 className="text-sm font-bold text-[#2D2A32] dark:text-[#FAF8FA] leading-snug">
+              <h2 className="text-sm font-bold text-[#2D2A32] dark:text-[#F4F4F5] leading-snug">
                 {selectedLecture.title}
               </h2>
-              <p className="text-xs text-[#6B6873] dark:text-[#C8BAC3] mt-1">{selectedLecture.course}</p>
+              <p className="text-xs text-[#6B6873] dark:text-[#A1A1AA] mt-1">{selectedLecture.course}</p>
 
-              <div className="mt-4 pt-3 border-t border-[#F3E8EE] dark:border-[#2C2630] space-y-2 text-xs text-[#6B6873] dark:text-[#C8BAC3]">
+              <div className="mt-4 pt-3 border-t border-[#F3E8EE] dark:border-[#27272A] space-y-2 text-xs text-[#6B6873] dark:text-[#A1A1AA]">
                 <div className="flex justify-between">
                   <span>Pages / Duration:</span>
-                  <span className="text-[#2D2A32] dark:text-[#FAF8FA] font-mono">{selectedLecture.pages} slides</span>
+                  <span className="text-[#2D2A32] dark:text-[#F4F4F5] font-mono">{selectedLecture.pages} slides</span>
                 </div>
                 <div className="flex justify-between">
                   <span>File Size:</span>
-                  <span className="text-[#2D2A32] dark:text-[#FAF8FA] font-mono">{selectedLecture.fileSize}</span>
+                  <span className="text-[#2D2A32] dark:text-[#F4F4F5] font-mono">{selectedLecture.fileSize}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Audio Sync:</span>
@@ -264,13 +264,13 @@ export default function ChatPage() {
 
               {/* Extracted Key Topics */}
               <div className="mt-5">
-                <p className="text-xs font-semibold text-[#2D2A32] dark:text-[#FAF8FA] mb-2">Core Concepts Identified:</p>
+                <p className="text-xs font-semibold text-[#2D2A32] dark:text-[#F4F4F5] mb-2">Core Concepts Identified:</p>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedLecture.topics.map((topic) => (
                     <span
                       key={topic}
                       onClick={() => handleSendMessage(`Explain ${topic} in detail based on this lecture.`)}
-                      className="cursor-pointer text-[10px] rounded-xl bg-[#FFF9FB] dark:bg-[#221F27] hover:bg-[#FDF2F8] dark:hover:bg-[#2E2734] text-[#6B6873] dark:text-[#C8BAC3] hover:text-[#D99AA9] dark:hover:text-[#F4B6C2] border border-[#F3E8EE] dark:border-[#2C2630] px-2.5 py-1 transition"
+                      className="cursor-pointer text-[10px] rounded-xl bg-[#FFF9FB] dark:bg-[#202024] hover:bg-[#FDF2F8] dark:hover:bg-[#2E2734] text-[#6B6873] dark:text-[#A1A1AA] hover:text-[#D99AA9] dark:hover:text-[#F4B6C2] border border-[#F3E8EE] dark:border-[#27272A] px-2.5 py-1 transition"
                     >
                       {topic}
                     </span>
@@ -280,7 +280,7 @@ export default function ChatPage() {
             </div>
 
             {/* Hardware Acceleration info */}
-            <div className="pt-4 border-t border-[#F3E8EE] dark:border-[#2C2630] text-[11px] text-[#9A949F] dark:text-[#8E8691] space-y-1.5">
+            <div className="pt-4 border-t border-[#F3E8EE] dark:border-[#27272A] text-[11px] text-[#9A949F] dark:text-[#71717A] space-y-1.5">
               <div className="flex items-center gap-1.5 text-[#82A792] dark:text-[#9ABAA4] font-medium">
                 <NvidiaIcon className="h-3 w-3" />
                 <span>NVIDIA NIM NeMo Retriever</span>
@@ -293,7 +293,7 @@ export default function ChatPage() {
           </aside>
 
           {/* Central Chat Panel */}
-          <div className="lg:col-span-9 flex flex-col rounded-3xl border border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#1A181E] overflow-hidden shadow-sm">
+          <div className="lg:col-span-9 flex flex-col rounded-3xl border border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#18181B] overflow-hidden shadow-sm">
             
             {/* Chat Message Stream */}
             <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-5 max-h-[580px]">
@@ -305,7 +305,7 @@ export default function ChatPage() {
                   }`}
                 >
                   {msg.sender === "ai" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#221F27] border border-[#F4B6C2]/30 text-[#D99AA9] dark:text-[#F4B6C2] font-bold">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#202024] border border-[#F4B6C2]/30 text-[#D99AA9] dark:text-[#F4B6C2] font-bold">
                       <Sparkles className="h-4 w-4" />
                     </div>
                   )}
@@ -313,8 +313,8 @@ export default function ChatPage() {
                   <div
                     className={`max-w-[85%] rounded-3xl p-4 sm:p-5 space-y-3 ${
                       msg.sender === "user"
-                        ? "bg-[#F4B6C2] text-[#1F1A23] font-medium shadow-xs"
-                        : "bg-[#FFF9FB] dark:bg-[#221F27] text-[#2D2A32] dark:text-[#FAF8FA] border border-[#F3E8EE] dark:border-[#2C2630] shadow-xs"
+                        ? "bg-[#F4B6C2] text-[#18181B] font-medium shadow-xs"
+                        : "bg-[#FFF9FB] dark:bg-[#202024] text-[#2D2A32] dark:text-[#F4F4F5] border border-[#F3E8EE] dark:border-[#27272A] shadow-xs"
                     }`}
                   >
                     {/* Message Body */}
@@ -324,8 +324,8 @@ export default function ChatPage() {
 
                     {/* Grounded Citation Badges */}
                     {msg.citations && msg.citations.length > 0 && (
-                      <div className="pt-2 border-t border-[#F3E8EE] dark:border-[#2C2630] space-y-1.5">
-                        <span className="text-[10px] uppercase tracking-wider font-semibold text-[#9A949F] dark:text-[#8E8691]">
+                      <div className="pt-2 border-t border-[#F3E8EE] dark:border-[#27272A] space-y-1.5">
+                        <span className="text-[10px] uppercase tracking-wider font-semibold text-[#9A949F] dark:text-[#71717A]">
                           Verified Lecture Sources:
                         </span>
                         <div className="flex flex-wrap gap-2">
@@ -333,7 +333,7 @@ export default function ChatPage() {
                             <button
                               key={i}
                               onClick={() => setActiveCitation(c)}
-                              className="inline-flex items-center gap-1.5 rounded-xl bg-white dark:bg-[#17141A] hover:bg-[#FDF2F8] dark:hover:bg-[#201A23] border border-[#F4B6C2]/30 dark:border-[#F4B6C2]/20 px-2.5 py-1 text-[11px] text-[#D99AA9] dark:text-[#F4B6C2] transition shadow-xs"
+                              className="inline-flex items-center gap-1.5 rounded-xl bg-white dark:bg-[#141416] hover:bg-[#FDF2F8] dark:hover:bg-[#201A23] border border-[#F4B6C2]/30 dark:border-[#F4B6C2]/20 px-2.5 py-1 text-[11px] text-[#D99AA9] dark:text-[#F4B6C2] transition shadow-xs"
                             >
                               {c.page ? <FileText className="h-3 w-3" /> : <Video className="h-3 w-3" />}
                               <span>{c.label}</span>
@@ -346,13 +346,13 @@ export default function ChatPage() {
 
                     {/* Follow-up question suggestion pills */}
                     {msg.suggestedFollowUps && msg.suggestedFollowUps.length > 0 && (
-                      <div className="pt-2 border-t border-[#F3E8EE] dark:border-[#2C2630] flex flex-wrap gap-1.5">
-                        <span className="text-[10px] text-[#9A949F] dark:text-[#8E8691] self-center">Follow-up:</span>
+                      <div className="pt-2 border-t border-[#F3E8EE] dark:border-[#27272A] flex flex-wrap gap-1.5">
+                        <span className="text-[10px] text-[#9A949F] dark:text-[#71717A] self-center">Follow-up:</span>
                         {msg.suggestedFollowUps.map((fu, i) => (
                           <button
                             key={i}
                             onClick={() => handleSendMessage(fu)}
-                            className="rounded-full bg-white dark:bg-[#17141A] hover:bg-[#FDF2F8] dark:hover:bg-[#201A23] border border-[#F3E8EE] dark:border-[#2C2630] px-3 py-1 text-[11px] text-[#6B6873] dark:text-[#C8BAC3] hover:text-[#2D2A32] dark:hover:text-[#FAF8FA] transition"
+                            className="rounded-full bg-white dark:bg-[#141416] hover:bg-[#FDF2F8] dark:hover:bg-[#201A23] border border-[#F3E8EE] dark:border-[#27272A] px-3 py-1 text-[11px] text-[#6B6873] dark:text-[#A1A1AA] hover:text-[#2D2A32] dark:hover:text-[#F4F4F5] transition"
                           >
                             {fu}
                           </button>
@@ -362,12 +362,12 @@ export default function ChatPage() {
 
                     {/* Footer inside AI bubble: Copy & Save */}
                     {msg.sender === "ai" && (
-                      <div className="pt-1 flex items-center justify-between text-[11px] text-[#9A949F] dark:text-[#8E8691]">
+                      <div className="pt-1 flex items-center justify-between text-[11px] text-[#9A949F] dark:text-[#71717A]">
                         <span>{msg.timestamp}</span>
                         <div className="flex items-center gap-3">
                           <button
                             onClick={() => handleCopy(msg.id, msg.text)}
-                            className="hover:text-[#2D2A32] dark:hover:text-[#FAF8FA] transition flex items-center gap-1"
+                            className="hover:text-[#2D2A32] dark:hover:text-[#F4F4F5] transition flex items-center gap-1"
                             title="Copy text"
                           >
                             {copiedId === msg.id ? (
@@ -397,7 +397,7 @@ export default function ChatPage() {
                   </div>
 
                   {msg.sender === "user" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#221F27] text-[#2D2A32] dark:text-[#FAF8FA] border border-[#F4B6C2]/30 font-bold text-xs">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#202024] text-[#2D2A32] dark:text-[#F4F4F5] border border-[#F4B6C2]/30 font-bold text-xs">
                       You
                     </div>
                   )}
@@ -406,11 +406,11 @@ export default function ChatPage() {
 
               {/* Typing indicator */}
               {isTyping && (
-                <div className="flex items-center gap-2.5 text-xs text-[#6B6873] dark:text-[#C8BAC3]">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#221F27] text-[#F4B6C2]">
+                <div className="flex items-center gap-2.5 text-xs text-[#6B6873] dark:text-[#A1A1AA]">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-2xl bg-[#FDF2F8] dark:bg-[#202024] text-[#F4B6C2]">
                     <RefreshCw className="h-3.5 w-3.5 animate-spin" />
                   </div>
-                  <div className="rounded-2xl bg-[#FFF9FB] dark:bg-[#221F27] px-4 py-2.5 border border-[#F3E8EE] dark:border-[#2C2630] text-xs text-[#6B6873] dark:text-[#C8BAC3]">
+                  <div className="rounded-2xl bg-[#FFF9FB] dark:bg-[#202024] px-4 py-2.5 border border-[#F3E8EE] dark:border-[#27272A] text-xs text-[#6B6873] dark:text-[#A1A1AA]">
                     LecturePilot is referencing course slides & synthesizing a cute response 🌸
                   </div>
                 </div>
@@ -420,15 +420,15 @@ export default function ChatPage() {
             </div>
 
             {/* Suggested Prompts Strip (above input) */}
-            <div className="px-4 sm:px-6 py-2.5 bg-[#FFF9FB] dark:bg-[#17151A] border-t border-[#F3E8EE] dark:border-[#2C2630] flex items-center gap-2 overflow-x-auto">
-              <span className="text-[10px] uppercase tracking-wider font-semibold text-[#9A949F] dark:text-[#8E8691] whitespace-nowrap">
+            <div className="px-4 sm:px-6 py-2.5 bg-[#FFF9FB] dark:bg-[#141416] border-t border-[#F3E8EE] dark:border-[#27272A] flex items-center gap-2 overflow-x-auto">
+              <span className="text-[10px] uppercase tracking-wider font-semibold text-[#9A949F] dark:text-[#71717A] whitespace-nowrap">
                 Prompts:
               </span>
               {suggestedPrompts.map((p) => (
                 <button
                   key={p.label}
                   onClick={() => handleSendMessage(p.query)}
-                  className="rounded-full bg-white dark:bg-[#221F27] hover:bg-[#FDF2F8] dark:hover:bg-[#2E2734] text-[#6B6873] dark:text-[#C8BAC3] hover:text-[#2D2A32] dark:hover:text-[#FAF8FA] border border-[#F3E8EE] dark:border-[#2C2630] px-3 py-1 text-xs whitespace-nowrap transition shadow-xs"
+                  className="rounded-full bg-white dark:bg-[#202024] hover:bg-[#FDF2F8] dark:hover:bg-[#2E2734] text-[#6B6873] dark:text-[#A1A1AA] hover:text-[#2D2A32] dark:hover:text-[#F4F4F5] border border-[#F3E8EE] dark:border-[#27272A] px-3 py-1 text-xs whitespace-nowrap transition shadow-xs"
                 >
                   {p.label}
                 </button>
@@ -436,7 +436,7 @@ export default function ChatPage() {
             </div>
 
             {/* Chat Input Bar */}
-            <div className="p-3 sm:p-4 bg-[#FFF9FB] dark:bg-[#17151A] border-t border-[#F3E8EE] dark:border-[#2C2630]">
+            <div className="p-3 sm:p-4 bg-[#FFF9FB] dark:bg-[#141416] border-t border-[#F3E8EE] dark:border-[#27272A]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -449,12 +449,12 @@ export default function ChatPage() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder={`Ask a question about ${selectedLecture.title}...`}
-                  className="flex-1 rounded-2xl border border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#221F27] px-4 py-3 text-xs sm:text-sm text-[#2D2A32] dark:text-[#FAF8FA] placeholder-[#9A949F] dark:placeholder-[#8E8691] focus:outline-none focus:border-[#F4B6C2]"
+                  className="flex-1 rounded-2xl border border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#202024] px-4 py-3 text-xs sm:text-sm text-[#2D2A32] dark:text-[#F4F4F5] placeholder-[#9A949F] dark:placeholder-[#71717A] focus:outline-none focus:border-[#F4B6C2]"
                 />
                 <button
                   type="submit"
                   disabled={!inputValue.trim()}
-                  className="rounded-2xl bg-[#F4B6C2] hover:bg-[#F8CAD4] disabled:opacity-40 disabled:cursor-not-allowed text-[#1F1A23] px-5 py-3 text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 shadow-xs"
+                  className="rounded-2xl bg-[#F4B6C2] hover:bg-[#F8CAD4] disabled:opacity-40 disabled:cursor-not-allowed text-[#18181B] px-5 py-3 text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 shadow-xs"
                 >
                   <span>Send</span>
                   <Send className="h-3.5 w-3.5" />
@@ -469,25 +469,25 @@ export default function ChatPage() {
         {/* Citation Excerpt Modal Preview */}
         {activeCitation && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-            <div className="relative w-full max-w-lg rounded-3xl border border-[#F3E8EE] dark:border-[#2C2630] bg-white dark:bg-[#1A181E] p-6 space-y-4 shadow-xl">
-              <div className="flex items-center justify-between pb-3 border-b border-[#F3E8EE] dark:border-[#2C2630]">
+            <div className="relative w-full max-w-lg rounded-3xl border border-[#F3E8EE] dark:border-[#27272A] bg-white dark:bg-[#18181B] p-6 space-y-4 shadow-xl">
+              <div className="flex items-center justify-between pb-3 border-b border-[#F3E8EE] dark:border-[#27272A]">
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#D99AA9] dark:text-[#F4B6C2]">
                   {activeCitation.page ? <FileText className="h-4 w-4" /> : <Video className="h-4 w-4" />}
                   <span>{activeCitation.label}</span>
                 </div>
                 <button
                   onClick={() => setActiveCitation(null)}
-                  className="text-xs text-[#6B6873] dark:text-[#C8BAC3] hover:text-[#2D2A32] dark:hover:text-[#FAF8FA]"
+                  className="text-xs text-[#6B6873] dark:text-[#A1A1AA] hover:text-[#2D2A32] dark:hover:text-[#F4F4F5]"
                 >
                   Close
                 </button>
               </div>
 
               <div>
-                <p className="text-xs font-semibold text-[#9A949F] dark:text-[#8E8691] uppercase tracking-wider mb-1.5">
+                <p className="text-xs font-semibold text-[#9A949F] dark:text-[#71717A] uppercase tracking-wider mb-1.5">
                   Verbatim Source Excerpt:
                 </p>
-                <div className="rounded-2xl bg-[#FFF9FB] dark:bg-[#17141A] border border-[#F3E8EE] dark:border-[#2C2630] p-4 text-xs sm:text-sm text-[#2D2A32] dark:text-[#FAF8FA] leading-relaxed italic">
+                <div className="rounded-2xl bg-[#FFF9FB] dark:bg-[#141416] border border-[#F3E8EE] dark:border-[#27272A] p-4 text-xs sm:text-sm text-[#2D2A32] dark:text-[#F4F4F5] leading-relaxed italic">
                   &ldquo;{activeCitation.excerpt}&rdquo;
                 </div>
               </div>
@@ -495,7 +495,7 @@ export default function ChatPage() {
               <div className="pt-2 flex justify-end">
                 <button
                   onClick={() => setActiveCitation(null)}
-                  className="rounded-xl bg-[#F4B6C2] text-[#1F1A23] px-4 py-1.5 text-xs font-semibold shadow-xs"
+                  className="rounded-xl bg-[#F4B6C2] text-[#18181B] px-4 py-1.5 text-xs font-semibold shadow-xs"
                 >
                   Understood 🌸
                 </button>
