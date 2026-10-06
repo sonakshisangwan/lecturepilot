@@ -1,13 +1,91 @@
 @import "tailwindcss";
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* LIGHT MODE (Locked): Soft light pink / blush / off-white cozy theme */
+  --bg: #FFF9FB;
+  --bg-secondary: #FDF2F8;
+  --card: #FFFFFF;
+  --card-hover: #FFF5F8;
+  --border: #F3E8EE;
+  --border-hover: #EADCE4;
+  --text: #2D2A32;
+  --text-secondary: #6B6873;
+  --text-muted: #9A949F;
+  --accent-blush: #F4B6C2;
+  --accent-blush-hover: #EAA0AE;
+  --accent-rose: #D99AA9;
+  --accent-mint: #82A792;
 }
 
-body{
-  background:#0f172a;
-  color:white;
-  font-family:Arial, Helvetica, sans-serif;
+.dark,
+:root[data-theme="dark"] {
+  /* DARK MODE (Locked): Black / deep charcoal cozy theme */
+  --bg: #121014;
+  --bg-secondary: #17151A;
+  --card: #1A181E;
+  --card-hover: #221F27;
+  --border: #2C2630;
+  --border-hover: #3D3543;
+  --text: #FAF8FA;
+  --text-secondary: #C8C1C5;
+  --text-muted: #8E8691;
+  --accent-blush: #F4B6C2;
+  --accent-blush-hover: #F8CAD4;
+  --accent-rose: #D99AA9;
+  --accent-mint: #9ABAA4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: rgba(244, 182, 194, 0.35);
+  color: inherit;
+}
+
+/* Cozy Soft Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blush);
+}
+
+/* 3D Flashcard Flip Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
