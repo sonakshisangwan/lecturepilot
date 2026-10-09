@@ -4,8 +4,17 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import Link from "next/link";
 import { BookOpen, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
   return (
     <div className="min-h-screen bg-[#FFF9FB] dark:bg-[#0D0D0E] text-[#2D2A32] dark:text-[#F4F4F5] transition-colors duration-200 flex flex-col">
       <Navbar />
@@ -24,17 +33,40 @@ export default function LoginPage() {
           </div>
 
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              window.location.href = "/dashboard";
-            }}
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+
+      localStorage.setItem("token", response.data.token);
+
+      router.push("/dashboard");
+    } catch (error: any) {
+      alert(
+        error.response?.data?.message || "Login failed"
+      );
+    } finally {
+      setLoading(false);
+    }
+  }}
             className="space-y-4 text-xs"
           >
             <div>
               <label className="mb-1.5 block text-xs font-medium text-[#6B6873] dark:text-[#A1A1AA]">Student Email</label>
               <input
                 type="email"
-                defaultValue="scholar@university.edu"
+                 value={email}
+onChange={(e) => setEmail(e.target.value)}
+placeholder="Enter your email"
                 className="w-full rounded-2xl border border-[#F3E8EE] dark:border-[#27272A] bg-[#FFF9FB] dark:bg-[#202024] px-4 py-3 text-xs text-[#2D2A32] dark:text-[#F4F4F5] placeholder-[#9A949F] dark:placeholder-[#71717A] outline-none transition focus:border-[#F4B6C2]"
               />
             </div>
@@ -43,7 +75,9 @@ export default function LoginPage() {
               <label className="mb-1.5 block text-xs font-medium text-[#6B6873] dark:text-[#A1A1AA]">Password</label>
               <input
                 type="password"
-                defaultValue="••••••••"
+                value={password}
+onChange={(e) => setPassword(e.target.value)}
+placeholder="Enter your password"
                 className="w-full rounded-2xl border border-[#F3E8EE] dark:border-[#27272A] bg-[#FFF9FB] dark:bg-[#202024] px-4 py-3 text-xs text-[#2D2A32] dark:text-[#F4F4F5] placeholder-[#9A949F] dark:placeholder-[#71717A] outline-none transition focus:border-[#F4B6C2]"
               />
             </div>
@@ -52,7 +86,9 @@ export default function LoginPage() {
               type="submit"
               className="w-full rounded-2xl bg-[#F4B6C2] hover:bg-[#F8CAD4] text-[#18181B] py-3 text-xs font-semibold transition shadow-xs flex items-center justify-center gap-1.5"
             >
-              <span>Sign In to LecturePilot</span>
+              <span>
+  {loading ? "Signing In..." : "Sign In to LecturePilot"}
+</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </form>
