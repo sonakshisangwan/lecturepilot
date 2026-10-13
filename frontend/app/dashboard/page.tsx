@@ -3,6 +3,8 @@
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import {
   Sparkles,
   Heart,
@@ -12,7 +14,34 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+interface UploadedFile {
+  _id: string;
+  filename: string;
+  url: string;
+  size: number;
+  text: string;
+  createdAt: string;
+}
+
 export default function DashboardPage() {
+  const [files, setFiles] = useState<UploadedFile[]>([]);
+  useEffect(() => {
+  const fetchFiles = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/upload"
+      );
+
+      console.log(response.data);
+
+      setFiles(response.data.files);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  fetchFiles();
+}, []);
   const lectures = [
     { title: "CS 229: Gradient Descent & Optimization", progress: "85%", tag: "In Progress", duration: "1h 18m", subject: "Computer Science" },
     { title: "BIO 101: Cellular Respiration & ATP", progress: "60%", tag: "Review Ready", duration: "52m", subject: "Biology" },
@@ -98,29 +127,30 @@ export default function DashboardPage() {
               </Link>
             </div>
 
-            <div className="space-y-3.5">
-              {lectures.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-[#F3E8EE] dark:border-[#27272A] bg-[#FFF9FB] dark:bg-[#202024] p-4.5 hover:border-[#F4B6C2]/40 transition space-y-3 shadow-xs"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="text-sm font-semibold text-[#2D2A32] dark:text-[#F4F4F5]">{item.title}</h3>
-                      <p className="text-xs text-[#6B6873] dark:text-[#A1A1AA] mt-0.5">{item.subject} • {item.duration}</p>
-                    </div>
-                    <span className="text-xs font-mono font-semibold text-[#D99AA9] dark:text-[#F4B6C2]">{item.progress}</span>
-                  </div>
+            < div className="space-y-3.5">
+  {files.map(file)=> (
+    <div
+      key={file._id}
+      className="rounded-2xl border border-[#F3E8EE] dark:border-[#27272A] bg-[#FFF9FB] dark:bg-[#202024] p-4 shadow-sm"
+    >
+      <h3 className="font-semibold">
+        {file.filename}
+      </h3>
 
-                  {/* Progress bar */}
-                  <div className="h-1.5 w-full rounded-full bg-[#F3E8EE] dark:bg-[#141416]">
-                    <div
-                      className="h-full rounded-full bg-[#F4B6C2]"
-                      style={{ width: item.progress }}
-                    />
-                  </div>
-                </div>
-              ))}
+      <p className="text-xs text-gray-500">
+        {(file.size / 1024).toFixed(1)} KB
+      </p>
+
+      <a
+        href={file.url}
+        target="_blank"
+        className="text-pink-500 text-xs"
+      >
+        Open PDF
+      </a>
+    </div>
+  ))}
+
             </div>
           </section>
 
